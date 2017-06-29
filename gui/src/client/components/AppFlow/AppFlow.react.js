@@ -1,6 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import Types from 'prop-types';
 import './AppFlow.less';
-import { Value } from '../../flowchart/index';
+import {
+  Value,
+  Editor
+} from '../../flowchart/index';
 
 const propTypes = {};
 const defaultProps = {};
@@ -13,9 +17,11 @@ class AppFlow extends Component {
   }
 
   render() {
-    console.log('val:', Value.create().toJS());
     return (
-      <div className="app-flow">
+      <div className="oc-app-flow">
+        <Editor
+
+        />
       </div>
     );
   }

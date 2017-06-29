@@ -1,3 +1,4 @@
+// models
 import Block from './models/Block';
 import Cursor from './models/Cursor';
 import Document from './models/Document';
@@ -9,9 +10,18 @@ import Selection from './models/Selection';
 import Value from './models/Value';
 import Viewport from './models/Viewport';
 
+// components
+
+import Editor from './components/Editor';
+
+// bunches
+
 import models from './models';
+import components from './components';
 
 export {
+  // models
+
   Block,
   Cursor,
   Document,
@@ -21,9 +31,14 @@ export {
   Schema,
   Selection,
   Value,
-  Viewport
+  Viewport,
+
+  // components
+
+  Editor
 }
 
 export default {
-  ...models
+  ...models,
+  ...components
 };
