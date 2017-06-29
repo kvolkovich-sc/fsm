@@ -6,7 +6,7 @@ const DEFAULTS = {
 
 export default
 class Selection extends Record(DEFAULTS) {
-  static create(properties = {}, options = {}) {
+  static create(properties = {}) {
     if (properties instanceof Selection) return properties;
 
     let elements = properties.elements || new List();

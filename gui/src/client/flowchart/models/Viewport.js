@@ -1,15 +1,24 @@
-import { Record } from 'immutable';
+import { Record, List, fromJS } from 'immutable';
 
 const DEFAULTS = {
   panX: 0,
   panY: 0,
   scale: 100,
-  size: 1000,
+  sizeV: 1000,
+  sizeH: 1000,
   allowPanning: true,
   allowScaling: true
 };
 
 export default
-class Viewport extends Record(DEFAULTS) {
-  
+class Selection extends Record(DEFAULTS) {
+  static create(properties = {}) {
+    if (properties instanceof Selection) return properties;
+
+    let elements = properties.elements || new List();
+    let selection = new Selection({ elements });
+    
+    return selection;
+  }
+
 }

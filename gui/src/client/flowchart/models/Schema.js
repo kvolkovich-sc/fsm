@@ -9,7 +9,7 @@ const DEFAULTS = {
 
 export default
 class Schema extends Record(DEFAULTS) {
-  static create(properties = {}, options = {}) {
+  static create(properties = {}) {
     if (properties instanceof Schema) return properties;
 
     let blocks = properties.blocks || new Map();
