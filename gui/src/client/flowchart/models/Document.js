@@ -11,7 +11,7 @@ const DEFAULTS = {
 
 export default
 class Document extends Record(DEFAULTS) {
-  static create(properties) {
+  static create(properties = {}) {
     if (properties instanceof Document) return properties;
 
     properties.blocks = Block.createList();
