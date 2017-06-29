@@ -9,9 +9,9 @@
 
 ## Model reference
 
-### Element
+### IElement
  
-**id** - string
+**key** - string
 **type** - mapping to Schema definition
 **kind** - Block, Port or Link
 **active** - bool
@@ -20,7 +20,7 @@
 
 ### Block
 
-Extends `Element`
+Extends `IElement`
 
 **x** - number
 **y** - number
@@ -28,11 +28,11 @@ Extends `Element`
 
 ### Link
 
-Extends `Element`
+Extends `IElement`
 
 ### Port
 
-Extends `Element`
+Extends `IElement`
 
 checkIn: func,
 checkOut: func
@@ -66,7 +66,7 @@ Mouse position at viewport
 **blocks** - 
 **links**
 
-### State
+### Value (state)
 
 **document**
 **selection**
