@@ -11,14 +11,13 @@ const DEFAULTS = {
 };
 
 export default
-class Selection extends Record(DEFAULTS) {
+class Viewport extends Record(DEFAULTS) {
   static create(properties = {}) {
-    if (properties instanceof Selection) return properties;
+    if (properties instanceof Viewport) return properties;
 
-    let elements = properties.elements || new List();
-    let selection = new Selection({ elements });
-    
-    return selection;
+    let viewport = new Viewport(properties);
+
+    return viewport;
   }
 
 }

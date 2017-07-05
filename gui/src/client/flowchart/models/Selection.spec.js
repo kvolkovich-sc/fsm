@@ -9,8 +9,8 @@ describe('Selection', () => {
   describe('.create(properties) (static)', () => {
 
     it('should return new `Selection(properties)` instance', () => {
-      let schema = Selection.create({ });
-      assert.instanceOf(schema, Selection);
+      let selection = Selection.create({ });
+      assert.instanceOf(selection, Selection);
     });
 
     it('should return `properties` if it is instance of `Selection`', () => {
@@ -23,17 +23,17 @@ describe('Selection', () => {
 
     it('should take `properties.elements` as is if specified', () => {
       let elements = ['block1', 'block2', 'block3'];
-      let schema = Selection.create({ elements });
+      let selection = Selection.create({ elements });
 
-      assert.deepEqual(schema.elements, elements);
+      assert.deepEqual(selection.elements, elements);
     });
 
     it('should create empty `immutable.List` as `properties.elements` if not specified', () => {
       let elements = List();
-      let schema = Selection.create();
+      let selection = Selection.create();
 
-      assert.instanceOf(schema.elements, List);
-      assert.deepEqual(schema.elements.toJS(), elements.toJS());
+      assert.instanceOf(selection.elements, List);
+      assert.deepEqual(selection.elements.toJS(), elements.toJS());
     });
 
   });

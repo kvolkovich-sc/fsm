@@ -18,7 +18,7 @@ class Value extends Record(DEFAULTS) {
     let selection = Selection.create(properties.selection);
     let viewport = Viewport.create(properties.viewport);
 
-    let value = new Value({ document, selection });
+    let value = new Value({ document, selection, viewport });
 
     return value;
   }
