@@ -32,6 +32,7 @@ describe('Schema', () => {
       let blocks = Map();
       let schema = Schema.create();
 
+      assert.instanceOf(schema.blocks, Map);
       assert.deepEqual(schema.blocks.toJS(), blocks.toJS());
     });
 
@@ -39,6 +40,7 @@ describe('Schema', () => {
       let links = Map();
       let schema = Schema.create();
 
+      assert.instanceOf(schema.links, Map);
       assert.deepEqual(schema.links.toJS(), links.toJS());
     });
 
