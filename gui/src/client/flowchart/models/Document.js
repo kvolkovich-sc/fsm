@@ -14,8 +14,8 @@ class Document extends Record(DEFAULTS) {
   static create(properties = {}) {
     if (properties instanceof Document) return properties;
 
-    properties.blocks = Block.createList();
-    properties.links = Link.createList();
+    properties.blocks = properties.blocks || Block.createList();
+    properties.links = properties.links || Link.createList();
 
     return new Document(properties);
   }

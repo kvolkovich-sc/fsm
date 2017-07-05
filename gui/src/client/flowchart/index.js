@@ -1,4 +1,4 @@
-// models
+/* models */
 import Block from './models/Block';
 import Cursor from './models/Cursor';
 import Document from './models/Document';
@@ -10,18 +10,15 @@ import Selection from './models/Selection';
 import Value from './models/Value';
 import Viewport from './models/Viewport';
 
-// components
-
+/* components */
 import Editor from './components/Editor';
 
-// bunches
-
+/* bunches */
 import models from './models';
 import components from './components';
 
 export {
-  // models
-
+/* models */
   Block,
   Cursor,
   Document,
@@ -32,9 +29,7 @@ export {
   Selection,
   Value,
   Viewport,
-
-  // components
-
+/* components */
   Editor
 }
 

@@ -13,6 +13,7 @@ const DEFAULTS = {
 export default
 class Block extends Record(DEFAULTS) {
   static create(properties = {}) {
+    if (properties instanceof Block) return properties;
     if (!properties.type) throw new Error('You must pass a block `type`.');
 
     properties.key = properties.key || generateKey();
@@ -22,7 +23,7 @@ class Block extends Record(DEFAULTS) {
 
     return new Block(properties);
   }
-  
+
   static createList(elements = []) {
     if (List.isList(elements)) return elements;
     return new List(elements.map(Block.create));

@@ -9,7 +9,7 @@
     "publish-release": "npm run npm-build && npm-publish --release",
     "prepublish": "npm run build",
     "start": "node www/index",
-    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/setup.js --recursive src/**/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/setup.js --recursive src/client/flowchart/**/*.spec.js"
   },
   "author": {
     "name": "Kirill Volkovich",
@@ -81,6 +81,7 @@
     "deep-diff": "0.3.8",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
+    "mocha": "^3.4.2",
     "normalizr": "^3.2.3",
     "prop-types": "^15.5.10",
     "radium": "^0.18.2",

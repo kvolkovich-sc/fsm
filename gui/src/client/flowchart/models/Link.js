@@ -17,6 +17,7 @@ const DEFAULTS = {
 export default
 class Link extends Record(DEFAULTS) {
   static create(properties = {}) {
+    if (properties instanceof Link) return properties;
     if (!properties.type) throw new Error('You must pass a link `type`.');
 
     properties.key = properties.key || generateKey();
@@ -26,7 +27,7 @@ class Link extends Record(DEFAULTS) {
 
     return new Link(properties);
   }
-  
+
   static createList(elements = []) {
     if (List.isList(elements)) return elements;
     return new List(elements.map(Link.create));
