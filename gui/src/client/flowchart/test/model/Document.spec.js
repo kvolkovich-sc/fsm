@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
-import Document from './Document';
-import Block from './Block';
-import Link from './Link';
+import Document from '../../models/Document';
+import Block from '../../models/Block';
+import Link from '../../models/Link';
 
 describe('Document', () => {
 

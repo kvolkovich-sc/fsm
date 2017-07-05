@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
-import Link from './Link';
+import Link from '../../models/Link';
 
 describe('Link', () => {
 

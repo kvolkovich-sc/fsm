@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import { Map } from 'immutable';
-import Schema from './Schema';
-import Block from './Block';
-import Link from './Link';
+import Schema from '../../models/Schema';
+import Block from '../../models/Block';
+import Link from '../../models/Link';
 
 describe('Schema', () => {
 

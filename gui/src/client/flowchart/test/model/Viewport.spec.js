@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
-import Viewport from './Viewport';
+import Viewport from '../../models/Viewport';
 
 describe('Viewport', () => {
 

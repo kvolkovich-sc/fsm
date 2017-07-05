@@ -1,9 +1,9 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
-import Value from './Value';
-import Selection from './Selection';
-import Document from './Document';
-import Viewport from './Viewport';
+import Value from '../../models/Value';
+import Selection from '../../models/Selection';
+import Document from '../../models/Document';
+import Viewport from '../../models/Viewport';
 
 describe('Value', () => {
 
@@ -23,7 +23,11 @@ describe('Value', () => {
     });
 
     it('should create instance of `Document` from `properties.document`', () => {
-      let blocks = ['block1', 'block2', 'block3'];
+      let blocks = [
+        { key: 'block-1', type: 'fsm-node' },
+        { key: 'block-2', type: 'fsm-node' },
+        { key: 'block-3', type: 'fsm-node' }
+      ];
       let document = Document.create({ blocks });
       let value = Value.create({ document });
 
