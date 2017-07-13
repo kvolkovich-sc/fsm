@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
 import Selection from '../../models/Selection';
-import Block from '../../models/Block';
+import Node from '../../models/Node';
 import Link from '../../models/Link';
 
 describe('Selection', () => {
@@ -22,7 +22,7 @@ describe('Selection', () => {
     });
 
     it('should take `properties.elements` as is if specified', () => {
-      let elements = ['block1', 'block2', 'block3'];
+      let elements = ['node1', 'node2', 'node3'];
       let selection = Selection.create({ elements });
 
       assert.deepEqual(selection.elements, elements);

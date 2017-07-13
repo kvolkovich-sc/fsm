@@ -1,5 +1,5 @@
 /* models */
-import Block from './models/Block';
+import Node from './models/Node';
 import Cursor from './models/Cursor';
 import Document from './models/Document';
 import index from './models/index';
@@ -19,7 +19,7 @@ import components from './components';
 
 export {
 /* models */
-  Block,
+  Node,
   Cursor,
   Document,
   index,

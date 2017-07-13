@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { Map } from 'immutable';
 import Schema from '../../models/Schema';
-import Block from '../../models/Block';
+import Node from '../../models/Node';
 import Link from '../../models/Link';
 
 describe('Schema', () => {
@@ -21,19 +21,19 @@ describe('Schema', () => {
       assert.deepEqual(schema1.toJS(), schema2.toJS());
     });
 
-    it('should take `properties.blocks` as is if specified', () => {
-      let blocks = ['block1', 'block2', 'block3'];
-      let schema = Schema.create({ blocks });
+    it('should take `properties.nodes` as is if specified', () => {
+      let nodes = ['node1', 'node2', 'node3'];
+      let schema = Schema.create({ nodes });
 
-      assert.deepEqual(schema.blocks, blocks);
+      assert.deepEqual(schema.nodes, nodes);
     });
 
-    it('should create empty `immutable.Map` as `properties.blocks` if not specified', () => {
-      let blocks = Map();
+    it('should create empty `immutable.Map` as `properties.nodes` if not specified', () => {
+      let nodes = Map();
       let schema = Schema.create();
 
-      assert.instanceOf(schema.blocks, Map);
-      assert.deepEqual(schema.blocks.toJS(), blocks.toJS());
+      assert.instanceOf(schema.nodes, Map);
+      assert.deepEqual(schema.nodes.toJS(), nodes.toJS());
     });
 
     it('should create empty `immutable.Map` as `properties.links` if not specified', () => {

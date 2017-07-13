@@ -1,11 +1,11 @@
 import generateKey from '../utils/generate-key';
 
-import Block from './Block';
+import Node from './Node';
 import Link from './Link';
 import { Record, List, Map } from 'immutable';
 
 const DEFAULTS = {
-  blocks: new List(),
+  nodes: new List(),
   links: new List()
 };
 
@@ -14,8 +14,8 @@ class Document extends Record(DEFAULTS) {
   static create(properties = {}) {
     if (properties instanceof Document) return properties;
 
-    properties.blocks = Block.createList(properties.blocks);
-    properties.links = Link.createList(properties.blocks);
+    properties.nodes = Node.createList(properties.nodes);
+    properties.links = Link.createList(properties.nodes);
 
     return new Document(properties);
   }

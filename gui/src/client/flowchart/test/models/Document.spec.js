@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { List } from 'immutable';
 import Document from '../../models/Document';
-import Block from '../../models/Block';
+import Node from '../../models/Node';
 import Link from '../../models/Link';
 
 describe('Document', () => {
@@ -21,20 +21,20 @@ describe('Document', () => {
       assert.deepEqual(document1.toJS(), document2.toJS());
     });
 
-    it('should create `Block`s list from `properties.blocks`', () => {
-      let blocks = [
+    it('should create `Node`s list from `properties.nodes`', () => {
+      let nodes = [
         { type: 'fsm-node', key: '0' },
         { type: 'fsm-node', key: '1' },
         { type: 'fsm-node', key: '2' },
       ];
-      let blocksList = Block.createList(blocks);
-      let document = Document.create({ blocks });
+      let nodesList = Node.createList(nodes);
+      let document = Document.create({ nodes });
 
-      assert.deepEqual(document.blocks.toJS(), blocksList.toJS());
+      assert.deepEqual(document.nodes.toJS(), nodesList.toJS());
     });
 
     it('should create `Link`s list as `properties.links` if not specified', () => {
-      let links = Block.createList();
+      let links = Node.createList();
       let document = Document.create();
 
       assert.deepEqual(document.links.toJS(), links.toJS());

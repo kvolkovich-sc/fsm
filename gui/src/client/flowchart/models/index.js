@@ -1,4 +1,4 @@
-import Block from './Block';
+import Node from './Node';
 import Cursor from './Cursor';
 import Document from './Document';
 import index from './index';
@@ -10,7 +10,7 @@ import Value from './Value';
 import Viewport from './Viewport';
 
 export default {
-  Block,
+  Node,
   Cursor,
   Document,
   index,

@@ -23,12 +23,12 @@ describe('Value', () => {
     });
 
     it('should create instance of `Document` from `properties.document`', () => {
-      let blocks = [
-        { key: 'block-1', type: 'fsm-node' },
-        { key: 'block-2', type: 'fsm-node' },
-        { key: 'block-3', type: 'fsm-node' }
+      let nodes = [
+        { key: 'node-1', type: 'fsm-node' },
+        { key: 'node-2', type: 'fsm-node' },
+        { key: 'node-3', type: 'fsm-node' }
       ];
-      let document = Document.create({ blocks });
+      let document = Document.create({ nodes });
       let value = Value.create({ document });
 
       assert.instanceOf(value.document, Document);
@@ -37,7 +37,7 @@ describe('Value', () => {
 
 
     it('should create instance of `Selection` from `properties.selection`', () => {
-      let elements = ['block1', 'block2', 'block3'];
+      let elements = ['node1', 'node2', 'node3'];
       let selection = Selection.create({ elements });
       let value = Value.create({ selection });
 
