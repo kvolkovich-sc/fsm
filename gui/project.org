@@ -1,7 +1,61 @@
-* Finite State Machine
-** fasdf
+* Visual representation
+** State node
 
-* Finite State Machine GUI
+#+BEGIN_SRC ditaa :file state_node.png
+  ―――*――――*――――*――――
+  |                |
+  *   Node Title   *
+  |                |
+  ―――*――――*――――*――――
+
+  "|" and "―" - are border of rectangle element
+  "*" - is a port
+#+END_SRC
+
+*** Specification
+**** should render rectangle element
+**** should render title at the center of rectangle element
+**** should increase or decrease rectangle element width on title length change
+**** should be draggable by mouse
+**** should render 8 ports at the sides of rectangle
+**** should start new transition creation on left mouse button down
+**** should finish new transition creation on left mouse button up
+**** should have coordinates properties x and y
+*** Model
+#+BEGIN_SRC js
+{
+
+}
+#+END_SRC
+
+
+Transition
+
+[start state port] ――――――――Transition-1――――――――> [end state port]
+
+#+BEGIN_SRC ditaa :file transition.png
+                           [start state port]
+                                    |
+                                    |
+                                    |
+                                    /
+                                   /
+                             Transition-2
+                                 /
+[end state port]<―――――――――――――――/
+#+END_SRC
+
+*** should render bezier curve
+*** should render an arrow directed to endState at bezier curve
+*** should have two draggable control points
+*** should have property startState
+*** should have property startStatePort
+*** should have property endState
+*** should have property endStatePort
+
+
+
+* Data
 ** Inspectable objects defenition
 *** Entry/global Transition
 **** Name
