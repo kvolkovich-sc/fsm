@@ -21,19 +21,27 @@ describe('Selection', () => {
       assert.deepEqual(schema1.toJS(), schema2.toJS());
     });
 
-    it('should take `properties.elements` as is if specified', () => {
-      let elements = ['node1', 'node2', 'node3'];
-      let selection = Selection.create({ elements });
+    it('should take `properties.nodes` as is if specified', () => {
+      let nodes = ['node1', 'node2', 'node3'];
+      let selection = Selection.create({ nodes });
 
-      assert.deepEqual(selection.elements, elements);
+      assert.deepEqual(selection.nodes, nodes);
     });
 
-    it('should create empty `immutable.List` as `properties.elements` if not specified', () => {
-      let elements = List();
+    it('should create empty `immutable.List` as `properties.nodes` if not specified', () => {
+      let nodes = List();
       let selection = Selection.create();
 
-      assert.instanceOf(selection.elements, List);
-      assert.deepEqual(selection.elements.toJS(), elements.toJS());
+      assert.instanceOf(selection.nodes, List);
+      assert.deepEqual(selection.nodes.toJS(), nodes.toJS());
+    });
+
+    it('should create empty `immutable.List` as `properties.links` if not specified', () => {
+      let links = List();
+      let selection = Selection.create();
+
+      assert.instanceOf(selection.links, List);
+      assert.deepEqual(selection.links.toJS(), links.toJS());
     });
 
   });

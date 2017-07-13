@@ -1,7 +1,8 @@
 import { Record, List } from 'immutable';
 
 const DEFAULTS = {
-  elements: new List()
+  nodes: new List(),
+  links: new List()
 };
 
 export default
@@ -9,9 +10,10 @@ class Selection extends Record(DEFAULTS) {
   static create(properties = {}) {
     if (properties instanceof Selection) return properties;
 
-    let elements = properties.elements || new List();
-    let selection = new Selection({ elements });
-    
+    let nodes = properties.nodes || new List();
+    let links = properties.links || new List();
+    let selection = new Selection({ nodes, links });
+
     return selection;
   }
 
