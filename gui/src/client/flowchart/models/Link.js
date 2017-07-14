@@ -1,4 +1,4 @@
-import { Record, List } from 'immutable';
+import { Record, Map } from 'immutable';
 import generateKey from '../utils/generate-key';
 
 const DEFAULTS = {
@@ -28,8 +28,8 @@ class Link extends Record(DEFAULTS) {
     return new Link(properties);
   }
 
-  static createList(elements = []) {
-    if (List.isList(elements)) return elements;
-    return new List(elements.map(Link.create));
+  static createMap(elements = []) {
+    if (Map.isList(elements)) return elements;
+    return new Map(elements.map(Link.create));
   };
 }

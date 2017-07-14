@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import { List } from 'immutable';
+import { Map } from 'immutable';
 import Node from '../../models/Node';
 
 describe('Node', () => {
@@ -29,20 +29,20 @@ describe('Node', () => {
       assert.typeOf(node.key, 'string');
     });
 
-    it('should convert `properties.active` to boolean', () => {
-      let node1 = Node.create({ type: 'fsm-node', active: 'str' });
-      assert.strictEqual(node1.active, true);
+    it('should convert `properties.disabled` to boolean', () => {
+      let node1 = Node.create({ type: 'fsm-node', disabled: 'str' });
+      assert.strictEqual(node1.disabled, true);
 
-      let node2 = Node.create({ type: 'fsm-node', active: null });
-      assert.strictEqual(node2.active, false);
+      let node2 = Node.create({ type: 'fsm-node', disabled: null });
+      assert.strictEqual(node2.disabled, false);
     });
 
-    it('should convert `properties.focused` to boolean', () => {
-      let node1 = Node.create({ type: 'fsm-node', focused: 'str' });
-      assert.strictEqual(node1.focused, true);
+    it('should convert `properties.selected` to boolean', () => {
+      let node1 = Node.create({ type: 'fsm-node', selected: 'str' });
+      assert.strictEqual(node1.selected, true);
 
-      let node2 = Node.create({ type: 'fsm-node', focused: null });
-      assert.strictEqual(node2.focused, false);
+      let node2 = Node.create({ type: 'fsm-node', selected: null });
+      assert.strictEqual(node2.selected, false);
     });
 
 
@@ -61,28 +61,40 @@ describe('Node', () => {
 
   });
 
-  describe('.createList(elements) (static)', () => {
+  describe('.createMap(elements) (static)', () => {
 
-    it('should return `elements` as is an instance of `immutable.List`', () => {
-      let elementsList = List([
-        { key: 'node-1', type: 'fsm-node' },
-        { key: 'node-2', type: 'fsm-node' },
-        { key: 'node-3', type: 'fsm-node' }
-      ]);
-      let createdList = Node.createList(elementsList);
+    it('should return `elements` as is if an instance of `immutable.Map`', () => {
+      let elementsList = Map({
+        'node-1': { key: 'node-1', type: 'fsm-node' },
+        'node-2': { key: 'node-2', type: 'fsm-node' },
+        'node-3': { key: 'node-3', type: 'fsm-node' }
+      });
+      let createdMap = Node.createMap(elementsList);
 
-      assert.deepEqual(elementsList, createdList);
+      assert.deepEqual(elementsList, createdMap);
     });
 
-    it('should return `immutable.List` of `Node`s if `elements` not an instance of `immutable.List`', () => {
-      let elements = [
+    it('should return `immutable.Map` of `Node`s if `elements` is an instance of `Array`', () => {
+      let elementsList = [
         { key: 'node-1', type: 'fsm-node' },
         { key: 'node-2', type: 'fsm-node' },
         { key: 'node-3', type: 'fsm-node' }
       ];
-      let createdList = Node.createList(elements);
+      let expectedElementsMap = {
+        'node-1': {
+          key: 'node-1', type: 'fsm-node', disabled: false, selected: false, hovered: false
+        },
+        'node-2': {
+          key: 'node-2', type: 'fsm-node', disabled: false, selected: false, hovered: false
+        },
+        'node-3': {
+          key: 'node-3', type: 'fsm-node', disabled: false, selected: false, hovered: false
+        }
+      };
+      let createdMap = Node.createMap(elementsList);
 
-      assert.instanceOf(createdList, List);
+      assert.instanceOf(createdMap, Map);
+      assert.deepEqual(createdMap.toJS(), expectedElementsMap);
     });
 
   });

@@ -1,11 +1,11 @@
-import { Record, List } from 'immutable';
+import { Record, Map, List } from 'immutable';
 import generateKey from '../utils/generate-key';
 
 const DEFAULTS = {
   key: null,
   type: 'fsm-node',
-  active: false,
-  focused: false,
+  disabled: false,
+  selected: false,
   hovered: false
 };
 
@@ -16,16 +16,18 @@ class Node extends Record(DEFAULTS) {
     if (!properties.type) throw new Error('You must pass a node `type`.');
 
     properties.key = properties.key || generateKey();
-    properties.active = !!properties.active;
-    properties.focused = !!properties.focused;
+    properties.disabled = !!properties.disabled;
+    properties.selected = !!properties.selected;
     properties.hovered = !!properties.hovered;
 
     return new Node(properties);
   }
 
-  static createList(elements = []) {
-    if (List.isList(elements)) return elements;
-    return new List(elements.map(Node.create));
+  static createMap(elements = []) {
+    if (Map.isMap(elements)) return elements;
+    
+    const reduceArrayToObject = (obj, element) => Object.assign({}, obj, { [element.key]: Node.create(element) });
+    return new Map(elements.reduce(reduceArrayToObject, {}));
   };
 
 }
